@@ -18,8 +18,10 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.10.2
       - name: Compilar APK de debug
-        run: sh gradlew --no-daemon --stacktrace assembleDebug
+        run: gradle --no-daemon --stacktrace assembleDebug
       - name: Guardar o APK
         uses: actions/upload-artifact@v4
         with:
